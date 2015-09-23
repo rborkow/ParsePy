@@ -174,8 +174,9 @@ class Queryset(object):
         if len(results) == 0:
             error_message = 'Query against %s returned no results' % (
                     self._manager.model_class.ENDPOINT_ROOT)
-            raise QueryResourceDoesNotExist(error_message,
-                                            status_code=404)
+            results.append("N/A")
+            #raise QueryResourceDoesNotExist(error_message,
+            #                                status_code=404)
         if len(results) >= 2:
             error_message = 'Query against %s returned multiple results' % (
                     self._manager.model_class.ENDPOINT_ROOT)
